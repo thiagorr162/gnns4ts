@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "ggn4ts"
+version = "0.1.0"
+description = "Material for Graph Neural Nets for Time Series"
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jupyterlab = "^4.2.5"
+notebook = "^7.2.2"
+numpy = "<2.0.0"
+tensorflow = "^2.17.0"
+pandas = "^2.2.2"
+matplotlib = "^3.9.2"
+networkx = "^3.3"
+scipy = "^1.14.1"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+profile = "black"
+
+[tool.flake8]
+max-line-length = 120
+max-complexity = 20
+exclude = ".git"
+select = "B,C,E,F,W,T4,B9"
+ignore = "E203, E266, E501, W503, F403, F401"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.6.0"
+black = "^23.12.1"
+isort = "^5.13.2"
+
+[tool.poetry.scripts]
+post-update = "sh -c 'poetry update && pre-commit install'"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
