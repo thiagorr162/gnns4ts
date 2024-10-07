@@ -29,10 +29,6 @@ poetry.lock
 *.out
 *.synctex.gz
 
-# images #
-##########
-*.pdf
-*.png
 
 # data files #
 ##############
